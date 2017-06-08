@@ -1,0 +1,50 @@
+﻿@model Web_MVC.Models.Article
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+@Scripts.Render("~/bundles/js/tinymce")
+
+<header><h2>Редагування новини</h2></header>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ArticleId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ArticleName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ArticleName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ArticleName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+		
+		<div class="form-group">
+			@Html.LabelFor(model => model.ArticleText, htmlAttributes: new { @class = "control-label col-md-2"})
+			<div class="col-md-10">
+				@Html.EditorFor(model => model.ArticleText, new { htmlAttributes = new { id = "tinymce" } })
+			    @Html.Partial("_TinymceEditor")
+				@Html.ValidationMessageFor(model => model.ArticleText, "", new { @class = "text-danger" })
+			</div>
+		</div>
+
+		@Html.EditorFor(model => model.CreatedDate, new { htmlAttributes = new { @class = "form-control" } })
+
+		<div class="form-group">
+			<div class="col-md-offset-2 col-md-10">
+				<input type="submit" value="Save" class="btn btn-default" />
+			</div>
+		</div>
+	</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@Scripts.Render("~/bundles/jqueryval")

@@ -1,0 +1,38 @@
+﻿@using Microsoft.AspNet.Identity
+@model IEnumerable<Web_MVC.Models.Article>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Unapproved news | @Html.ActionLink("Approved news", "Index")</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<section>
+	@foreach (var item in Model)
+	{
+		<h3>
+			@Html.ActionLink(item.ArticleName, "Details", new { id = item.ArticleId })
+		</h3>
+	    <article>
+	        @Html.Raw(item.ArticleText)
+
+	            @using (Html.BeginForm("Approve", "Articles", FormMethod.Post))
+	            {
+	                @:Создано: @item.CreatedDate.ToShortDateString() @item.Author.UserName
+                    <br />
+                    <div class="btn-group" role="group" aria-label="...">
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ArticleId }, new { @class = "btn btn-default" })
+	                @Html.ActionLink("Delete", "Delete", new { id = item.ArticleId }, new { @class = "btn btn-warning" })
+                
+                    <input type="submit" class="btn btn-success" value="Approve" />
+                    </div>
+                    <input type="hidden" value="@item.ArticleId" name="id" />
+                    <input type="hidden" value="@User.Identity.GetUserId()" name="approverId" />
+                }
+	    </article>
+	}
+</section>

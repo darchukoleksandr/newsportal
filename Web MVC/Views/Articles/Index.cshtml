@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Web_MVC.Models.Article>
+
+@{
+    ViewBag.Title = "Новини";
+}
+
+@foreach (var item in Model)
+{
+    @Html.Partial("_Article", item)
+}
+
+<!-- Pagination -->
+@if (ViewBag.pageCount > 1)
+{
+    var page = Request.Params["page"] == null ? 1 : Convert.ToInt32(Request.Params["page"]);
+//    var page = ViewContext.RouteData.Values["page"] == null ? 1 : Convert.ToInt32(ViewContext.RouteData.Values["page"]);
+    <div class="pagination">
+        @if (page > 1)
+        {
+            @Html.ActionLink("Попередня", Url.RequestContext.RouteData.Values["action"].ToString(), routeValues: new { page = page - 1 }, htmlAttributes: new { @class = "button previous" })
+        }
+        <div class="pages">
+            @for (var i = 1; i <= ViewBag.pageCount; i++)
+            {
+                @(page == i
+                    ? Html.ActionLink(i.ToString(), Url.RequestContext.RouteData.Values["action"].ToString(), routeValues: new {page = i}, htmlAttributes: new {@class = "active"})
+                    : Html.ActionLink(i.ToString(), Url.RequestContext.RouteData.Values["action"].ToString(), routeValues: new {page = i})
+                )
+            }
+            @*            <span>&hellip;</span>*@
+        </div>
+        @if (page < ViewBag.pageCount)
+        {
+            @Html.ActionLink("Наступна", Url.RequestContext.RouteData.Values["action"].ToString(), routeValues: new {page = page + 1}, htmlAttributes: new { @class = "button next" })
+        }
+    </div>
+}

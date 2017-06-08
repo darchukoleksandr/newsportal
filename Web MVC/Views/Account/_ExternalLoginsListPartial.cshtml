@@ -1,0 +1,17 @@
+﻿@model Web_MVC.Models.ExternalLoginListViewModel
+@using Microsoft.Owin.Security
+
+<h4 align="center">Або використайте для входу інший сервіс</h4>
+<div class="templatemo-login-widget">
+@{
+    var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
+    using (Html.BeginForm("ExternalLogin", "Account", new { ReturnUrl = Model.ReturnUrl })) {
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            @foreach (var p in loginProviders) {
+                <button type="submit" class="width-100" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Войти с помощью учетной записи @p.Caption">@p.AuthenticationType</button>
+            }
+        </div>
+    }
+}
+</div>

@@ -1,0 +1,32 @@
+﻿@using Microsoft.AspNet.Identity
+@model Web_MVC.Models.Article
+
+<div class="btn-group" role="group" aria-label="...">
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
+    @if (User.IsInRole("Admin") || Model.Author.Id == User.Identity.GetUserId())
+    {
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ArticleId }, new { @class = "btn btn-default" })
+        @Html.ActionLink("Delete", "Delete", new { id = Model.ArticleId }, new { @class = "btn btn-warning" })
+    }
+
+</div>
+
+@if (User.IsInRole("Admin"))
+{
+    if (Model.ApprovedDate != null)
+    {
+        using (Html.BeginForm("UnApprove", "Articles", FormMethod.Post))
+        {
+            <input type="number" hidden value="@Model.ArticleId" name="id"/>
+            <input type="submit" class="btn btn-warning" value="Unapprove"/>
+        }
+    }
+    else
+    {
+        using (Html.BeginForm("Approve", "Articles", FormMethod.Post))
+        {
+            <input type="number" hidden value="@Model.ArticleId" name="id"/>
+            <input type="submit" class="btn btn-warning" value="Approve" />
+        }
+    }
+}

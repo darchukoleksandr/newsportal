@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Базовий стандартний клас контролера наданий .NET Framework">
+    <Position X="5.031" Y="0.573" Height="0.604" Width="1.7" />
+  </Comment>
+  <Comment CommentText="Базовий клас .NET Framework, що відповідає за запуск веб-сайту">
+    <Position X="13.27" Y="0.69" Height="0.604" Width="1.7" />
+  </Comment>
+  <Class Name="Web_MVC.Controllers.AccountController">
+    <Position X="0.5" Y="3" Width="1.5" />
+    <NestedTypes>
+      <Class Name="Web_MVC.Controllers.AccountController.ChallengeResult">
+        <TypeIdentifier>
+          <NewMemberFileName>Controllers\AccountController.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAABAChACAAAAAAAAFgEgAABAABMKIAAAMRAAQgAAA=</HashCode>
+      <FileName>Controllers\AccountController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Web_MVC.Controllers.ArticlesController">
+    <Position X="4" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAhACQASABAACAAAAAABAQAAUAAEACAAEAAAAoAAA=</HashCode>
+      <FileName>Controllers\ArticlesController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Web_MVC.Controllers.HomeController">
+    <Position X="5.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Web_MVC.Controllers.SharedTestController">
+    <Position X="7.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Controllers\SharedController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Web_MVC.Controllers.UserController">
+    <Position X="2.25" Y="3" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="Web_MVC.Controllers.UserController.ManageMessageId" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Controllers\UserController.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAhACAQiAAgAAAAEFhAAAAAAEAIMICAMEEgAAkAAA=</HashCode>
+      <FileName>Controllers\UserController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Web.Mvc.Controller" Collapsed="true">
+    <Position X="3.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Orientation="Left" Position="0.1" />
+  </Class>
+  <Class Name="Web_MVC.Models.MyStringLengthAttribute">
+    <Position X="5.75" Y="5.25" Width="1.5" />
+    <AssociationLine Name="ArticlesController" Type="Web_MVC.Controllers.ArticlesController" ManuallyRouted="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.75" Y="6" />
+        <Point X="5.5" Y="6" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.175" Y="0.822" Height="0.182" Width="1.368" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ArticlesModels.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ArticlesController" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Web_MVC.Models.RecentPosts">
+    <Position X="8" Y="5" Width="1.5" />
+    <AssociationLine Name="SharedTestController" Type="Web_MVC.Controllers.SharedTestController" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8" Y="5.648" />
+        <Point X="7.75" Y="5.648" />
+        <Point X="7.75" Y="4.684" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.694" Y="0.092" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAgAAAAAAQAAA=</HashCode>
+      <FileName>Models\ArticlesModels.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="SharedTestController" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Web_MVC.Models.Article">
+    <Position X="5.75" Y="7.25" Width="1.5" />
+    <AssociationLine Name="ArticlesController" Type="Web_MVC.Controllers.ArticlesController" FixedFromPoint="true">
+      <Path>
+        <Point X="5.75" Y="7.875" />
+        <Point X="5.5" Y="7.875" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.202" Y="0.669" Height="0.182" Width="1.397" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAEQAAAAAAAAAAgAAQCAEAAAAAAAAAggAAAAAAAAA=</HashCode>
+      <FileName>Models\ArticlesModels.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ArticlesController" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Web_MVC.MvcApplication">
+    <Position X="11.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Global.asax.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Web_MVC.Startup">
+    <Position X="12.75" Y="4.75" Width="1.5" />
+    <AssociationLine Name="MvcApplication" Type="Web_MVC.MvcApplication" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="12.75" Y="5.312" />
+        <Point X="12.375" Y="5.312" />
+        <Point X="12.375" Y="2.983" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-2.077" Y="1.477" Height="0.182" Width="1.691" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAgAAEAgAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\Startup.Auth.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="MvcApplication" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Web_MVC.BundleConfig">
+    <Position X="10.25" Y="4.75" Width="1.5" />
+    <AssociationLine Name="MvcApplication" Type="Web_MVC.MvcApplication" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="11.75" Y="5.302" />
+        <Point X="12.188" Y="5.302" />
+        <Point X="12.188" Y="2.983" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.516" Y="1.508" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAgABAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\BundleConfig.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="MvcApplication" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Web_MVC.FilterConfig">
+    <Position X="12.75" Y="3.25" Width="1.5" />
+    <AssociationLine Name="MvcApplication" Type="Web_MVC.MvcApplication" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="12.75" Y="3.802" />
+        <Point X="12.562" Y="3.802" />
+        <Point X="12.562" Y="2.983" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-1.538" Y="0.034" Height="0.182" Width="1.339" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\FilterConfig.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="MvcApplication" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Web_MVC.RouteConfig">
+    <Position X="10.25" Y="3.25" Width="1.5" />
+    <AssociationLine Name="MvcApplication" Type="Web_MVC.MvcApplication" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="11.75" Y="3.802" />
+        <Point X="11.938" Y="3.802" />
+        <Point X="11.938" Y="2.983" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.334" Y="-0.03" Height="0.182" Width="1.323" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAgABAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\RouteConfig.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="MvcApplication" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="System.Web.HttpApplication" Collapsed="true">
+    <Position X="11.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Orientation="Left" Position="0.1" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

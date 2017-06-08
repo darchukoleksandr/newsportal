@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Web_MVC.Models.RecentPosts>
+
+<section class="box recent-posts">
+    <header>
+        <h2>Недавні новини</h2>
+    </header>
+    <ul>
+        @foreach (var link in Model)
+        {
+            <li>
+                @Html.RouteLink(link.ArticleName, new { controller = "Articles", action = "Details", id = link.ArticleId }, htmlAttributes: new { style = "font-weight: bold;" })
+            </li>
+        }
+    </ul>
+</section>

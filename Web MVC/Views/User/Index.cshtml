@@ -1,0 +1,71 @@
+﻿@using Microsoft.AspNet.Identity
+@model Web_MVC.Models.IndexNewViewModel
+
+@{
+    ViewBag.Title = "Сторінка користувача";
+}
+
+<h2>Обліковий запис @Model.UserName</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        
+        @if (Model.UserName == User.Identity.GetUserName())
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.HasPassword)</dt>
+            <dd>
+                [@(Model.HasPassword ? Html.ActionLink("Смена пароля", "ChangePassword", "User") : Html.ActionLink("Создать", "SetPassword", "User"))]
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Logins)</dt>
+            <dd>
+                @Model.Logins.Count [@Html.ActionLink("Управление", "ManageLogins", "User")]
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </dt>
+            <dd>
+                @(Model.PhoneNumber ?? "None")
+                @if (Model.PhoneNumber != null)
+                {
+                    <br />
+                    <text>[&nbsp;&nbsp;@Html.ActionLink("Change", "AddPhoneNumber", "User")&nbsp;&nbsp;]</text>
+                    using (Html.BeginForm("RemovePhoneNumber", "User", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <text>[<input type="submit" value="Remove" class="btn-link" />]</text>
+                    }
+                }
+                else
+                {
+                    <text>[&nbsp;&nbsp;@Html.ActionLink("Add", "AddPhoneNumber", "User")&nbsp;&nbsp;]</text>
+                }
+            </dd>
+        }
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Новини користувача", "UserNews", "Articles", routeValues: new { user = Model.Email }, htmlAttributes: null)
+    @if (User.IsInRole("Admin"))
+    {
+        @: | @Html.ActionLink("Редагувати","Edit", "User", routeValues: new { id = Model.Id }, htmlAttributes: null)  
+    }
+</p>

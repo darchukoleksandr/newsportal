@@ -1,0 +1,20 @@
+﻿@model Web_MVC.Models.Article
+
+<article class="box post">
+    <header><h2>@Html.ActionLink(Model.ArticleName, "Details", new { id = Model.ArticleId })</h2></header>
+    <div class="info">
+        <span class="date">
+            <span class="month">@Model.CreatedDate.ToString("MMM")</span>
+            <span class="day">@Model.CreatedDate.ToString("dd")</span>
+            <span class="year">, @Model.CreatedDate.ToString("yyyy")</span>
+        </span>
+        <ul class="stats">
+            @*                <li><a href="#" class="icon fa-comment"><span class="disqus-comment-count" data-disqus-identifier="@item.ArticleId"></span></a></li>*@
+            @*                <li><a href="#" class="icon fa fa-user-circle"></a></li>*@
+
+            <li>@Html.ActionLink("A", "Index", "User", routeValues: new { name = Model.Author.UserName }, htmlAttributes: new { @class = "icon fa fa-user-circle tooltip" })</li>
+@*            <li><a href="User/@Model.Author.UserName" class="icon fa fa-user-circle tooltip"></a></li>*@
+        </ul>
+    </div>
+    @Html.DisplayFor(model => model.ArticleText)
+</article>

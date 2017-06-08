@@ -1,0 +1,80 @@
+[
+  {
+    "outputFileName": "Content/js/main.min.js",
+    "inputFiles": [
+      "Content/js/main.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/js/util.min.js",
+    "inputFiles": [
+      "Content/js/util.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/js/bootstrap.min.js",
+    "inputFiles": [
+      "Content/js/bootstrap.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/js/modernizr-2.8.3.min.js",
+    "inputFiles": [
+      "Content/js/modernizr-2.8.3.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/js/respond.min.js",
+    "inputFiles": [
+      "Content/js/respond.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/js/datepicker.min.js",
+    "inputFiles": [
+      "Content/js/datepicker.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/css/bootstrap-datepicker.min.css",
+    "inputFiles": [
+      "Content/css/bootstrap-datepicker.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/js/bootstrap-datepicker.min.js",
+    "inputFiles": [
+      "Content/js/bootstrap-datepicker.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/js/jquery/jquery-3.1.1.min.js",
+    "inputFiles": [
+      "Content/js/jquery/jquery-3.1.1.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/js/jquery/jquery-3.1.1.slim.min.js",
+    "inputFiles": [
+      "Content/js/jquery/jquery-3.1.1.slim.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/js/jquery/jquery.unobtrusive-ajax.min.js",
+    "inputFiles": [
+      "Content/js/jquery/jquery.unobtrusive-ajax.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/js/jquery/jquery.validate.min.js",
+    "inputFiles": [
+      "Content/js/jquery/jquery.validate.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/js/jquery/jquery.validate.unobtrusive.min.js",
+    "inputFiles": [
+      "Content/js/jquery/jquery.validate.unobtrusive.js"
+    ]
+  }
+]

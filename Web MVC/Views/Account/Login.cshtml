@@ -1,0 +1,54 @@
+﻿@using Web_MVC.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Авторизація";
+}
+
+<link href="~/Content/css/templatemo-style.css" rel="stylesheet">
+
+<body class="light-gray-bg">
+    <div class="templatemo-login-widget">
+        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "templatemo-login-form", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+
+@*            @Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
+
+            @Html.ValidationMessageFor(m => m.Login, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-user fa-fw"></i></div>
+                    @Html.TextBoxFor(m => m.Login, new { @class = "form-control", placeholder = "Логін або E-mail" })
+                </div>
+            </div>
+
+            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-key fa-fw"></i></div>
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "******" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox">
+                    <input data-val="true" data-val-required="Необхідне поле Запям'ятати мене." id="cc1" name="RememberMe" type="checkbox" value="true">
+                    <input type="checkbox" id="c1" name="RememberMe" value="false" />
+                    <label for="c1"><span></span>Запям'ятати мене</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="width-100">Увійти</button>
+            </div>
+        }
+    </div>
+    
+    <section id="socialLoginForm">
+        @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+    </section>
+</body>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

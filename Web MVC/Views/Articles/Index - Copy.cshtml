@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Web_MVC.Models.Article>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@foreach (var item in Model)
+{
+    @Html.Partial("_Article", item)
+}
+
+<!-- Pagination -->
+@if (ViewBag.pageCount > 1)
+{
+    var page = ViewContext.RouteData.Values["id"] == null ? 1 : Convert.ToInt32(ViewContext.RouteData.Values["id"]);
+    <div class="pagination">
+        @if (page > 1)
+        {
+            @Html.RouteLink("Попередня", new { controller = "Articles", Action = Url.RequestContext.RouteData.Values["action"], id = page - 1 })
+        }
+        <div class="pages">
+            @for (var i = 1; i <= ViewBag.pageCount; i++)
+            {
+                if (page == i)
+                {
+                    @Html.RouteLink(i.ToString(), new { controller = "Articles", Action = Url.RequestContext.RouteData.Values["action"], id = i })
+@*                    <a href="@i" class="active">@i</a>*@
+                }
+                else
+                {
+                    @Html.RouteLink(i.ToString(), new { controller = "Articles", Action = Url.RequestContext.RouteData.Values["action"], id = i })
+                }
+            }
+            @*            <span>&hellip;</span>*@
+        </div>
+        @if (page < ViewBag.pageCount)
+        {
+            @Html.RouteLink("Наступна", new { controller = "Articles", Action = Url.RequestContext.RouteData.Values["action"], id = page + 1 })
+        }
+    </div>
+}

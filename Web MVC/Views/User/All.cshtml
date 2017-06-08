@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Web_MVC.Models.ApplicationUser>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink(item.UserName, "Index", new { name = item.UserName })
+            @*            @Html.RouteLink(item.UserName, , new { id = item.UserName })*@
+            @*            @Html.DisplayFor(modelItem => item.UserName)*@
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneNumber)
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Аграрвард - @ViewBag.Title</title>
+        @Styles.Render("~/Content/bootstrap")
+        @Styles.Render("~/Content/main")
+        @Styles.Render("~/Content/fontAwesome")
+        @Styles.Render("~/Content/datepicker")
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/datepicker")
+        @Scripts.Render("~/bundles/js")
+    </head>
+<body>
+    <div id="content">
+        <div class="inner">
+            @RenderBody()
+        </div>
+    </div>
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <h1 id="logo">@Html.ActionLink("АГРАРВАРД", "Index", "Home")</h1>
+        <!-- Nav -->
+        @Html.Partial("_Navigation")
+        <!-- Search -->
+        <section class="box search">
+            @using (Html.BeginForm("Search", "Articles", FormMethod.Get))
+            {
+                <input type="text" name="name" placeholder="Search" />
+            }
+        </section>
+        <!-- Recent Posts -->
+        @{Html.RenderAction("RecentNewsPartial", "Articles");}
+        <!-- Recent Comments -->
+        <section class="box recent-comments">
+            <header>
+                <h2>Recent Comments</h2>
+            </header>
+            <script type="text/javascript" src="http://localhost-50000.disqus.com/recent_comments_widget.js?num_items=5&hide_mods=0&hide_avatars=1&excerpt_length=100"></script>
+        </section>
+        <!-- Calendar -->
+        <div class="datepicker"></div>
+        <script>
+            $('.datepicker').datepicker({
+                language: 'ru',
+                todayHighlight: true,
+                endDate: '0d'
+            }).on('changeDate', function (e)
+            {
+                alert(e.date);
+            });
+        </script> 
+        <!-- Copyright -->
+        <section class="box text-style1">
+            <div class="inner">
+                <p>
+                    <strong>Contact:</strong><br />
+                    <a href="mailto:darchukoleksandr@gmail.com">Email</a><br />
+                    <a href="https://github.com/darchukoleksandr">GitHub</a><br />
+                    <a href="https://www.linkedin.com/in/oleksandr-darchuk/">LinkedIn</a><br />
+                    <a href="https://vk.com/darchukoleksandr">VK</a><br />
+                    <a href="https://www.facebook.com/darchukoleksandr">Facebook</a>
+                </p>
+            </div>
+        </section>
+        <ul id="copyright">
+            <li>&copy; Oleksandr Darchuk.</li>
+            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+        @*    @Scripts.Render("~/bundles/jquery")*@
+        @*    @Scripts.Render("~/bundles/js")*@
+        @*    @Scripts.Render("~/bundles/bootstrap")*@
+        @RenderSection("scripts", required: false)
+    </div>
+</body>
+</html>

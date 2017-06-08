@@ -1,0 +1,34 @@
+﻿@using Microsoft.AspNet.Identity
+<nav id="nav">
+    <ul>
+        @if (User.Identity.IsAuthenticated)
+        {
+            using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+            {
+                @Html.AntiForgeryToken()
+                <li class="current">
+                    @Html.ActionLink("Вітаємо, " + User.Identity.GetUserName() + "!", "Index", "User", routeValues: new { name = User.Identity.GetUserName() }, htmlAttributes: new { title = "Manage" })
+                </li>
+                <li>@Html.ActionLink("Мої новини", "MyNews", "Articles")</li>
+                <li>@Html.ActionLink("Створити", "Create", "Articles")</li>
+                <li><a href="javascript:document.getElementById('logoutForm').submit()">Вийти</a></li>
+            }
+        }
+        else
+        {
+            <li>
+                @Html.ActionLink("Реєстрація", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })
+            </li>
+                <li>
+                    @Html.ActionLink("Виконати вхід", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+                </li>
+        }
+        @if (User.IsInRole("Admin"))
+        {
+            <li>@Html.ActionLink("Непідтверджені", "UnApproved", "Articles", null, new { title = "Unapproved news" })</li>
+            <li>@Html.ActionLink("Користувачі", "All", "User", null, new { title = "Manage Users" })</li>
+        }
+        <li>@Html.ActionLink("Новини", "Index", "Articles")</li>
+        <li>@Html.ActionLink("Про проект", "About", "Home")</li>
+    </ul>
+</nav>

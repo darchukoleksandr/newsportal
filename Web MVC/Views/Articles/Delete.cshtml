@@ -1,0 +1,26 @@
+﻿@model Web_MVC.Models.Article
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete article "@Html.DisplayFor(model => model.ArticleName)"?</h3>
+<div>
+	<hr />
+
+    @Html.DisplayFor(model => model.ArticleText)
+
+	<br />
+	<br />
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-warning" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
